@@ -1,5 +1,5 @@
-site_name: Kassow Vision Manual
-site_description: Example Kassow integration for the wenglor robot vision API.
+site_name: Kassow Robots Vision Manual
+site_description: Example Kassow Robots integration for the wenglor robot vision API.
 site_url: https://wenglor.github.io/wenglor-kassow-vision/
 repo_url: https://github.com/wenglor/wenglor-kassow-vision
 repo_name: wenglor-kassow-vision

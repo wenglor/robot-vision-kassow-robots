@@ -4,9 +4,9 @@
 
 > NOTE
 >
-> This repository focuses exclusively on Kassow-specific topics. For general robot vision information, please refer to the [wenglor robot vision manual](https://wenglor.github.io/wenglor-robot-vision/).
+> This repository focuses exclusively on Kassow Robots-specific topics. For general robot vision information, please refer to the [wenglor robot vision manual](https://wenglor.github.io/wenglor-robot-vision/).
 
-This repository contains a CBun and an example program to set up and start the generic vision interface to wenglor vision devices on your kassow robot.
+This repository contains a CBun and an example program to set up and start the generic vision interface to wenglor vision devices on your Kassow robot.
 
 The included [wenglor_vision.kr2](sources/wenglor_vision.kr2) example program acts as a working sample program that you can adopt and customize for your application.
 
