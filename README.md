@@ -1,4 +1,4 @@
-# kassow-vision-generic
+# wenglor-kassow-robots-vision
 
 **Version:** 1.0.0
 
@@ -14,16 +14,16 @@ The included [wenglor_vision.kr2](sources/wenglor_vision.kr2) example program ac
 
 ## Table of Contents
 
-https://wenglor.github.io/wenglor-kassow-vision/1_0_installation_of_cbuns/
+https://wenglor.github.io/wenglor-kassow-robots-vision/1_0_installation_of_cbuns/
 
-1. [Installation of CBuns](https://wenglor.github.io/wenglor-kassow-vision/1_0_installation_of_cbuns/)
-2. [Set up Workcell](https://wenglor.github.io/wenglor-kassow-vision/2_0_set_up_workcell/)
-3. [Robot Program](https://wenglor.github.io/wenglor-kassow-vision/3_0_robot_program/)
-4. [Troubleshooting](https://wenglor.github.io/wenglor-kassow-vision/4_0_troubleshooting/)
-5. [Support & Feedback](https://wenglor.github.io/wenglor-kassow-vision/5_0_support_and_feedback/)
+1. [Installation of CBuns](https://wenglor.github.io/wenglor-kassow-robots-vision/1_0_installation_of_cbuns/)
+2. [Set up Workcell](https://wenglor.github.io/wenglor-kassow-robots-vision/2_0_set_up_workcell/)
+3. [Robot Program](https://wenglor.github.io/wenglor-kassow-robots-vision/3_0_robot_program/)
+4. [Troubleshooting](https://wenglor.github.io/wenglor-kassow-robots-vision/4_0_troubleshooting/)
+5. [Support & Feedback](https://wenglor.github.io/wenglor-kassow-robots-vision/5_0_support_and_feedback/)
 
 ---
 
 ## Full Documentation
 
-All usage instructions, configuration steps, and troubleshooting information are available in the [online documentation](https://wenglor.github.io/wenglor-kassow-vision/).
+All usage instructions, configuration steps, and troubleshooting information are available in the [online documentation](https://wenglor.github.io/wenglor-kassow-robots-vision/).
