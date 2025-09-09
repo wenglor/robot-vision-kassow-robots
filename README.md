@@ -14,8 +14,6 @@ The included [wenglor_vision.kr2](sources/wenglor_vision.kr2) example program ac
 
 ## Table of Contents
 
-https://wenglor.github.io/wenglor-kassow-robots-vision/1_0_installation_of_cbuns/
-
 1. [Installation of CBuns](https://wenglor.github.io/wenglor-kassow-robots-vision/1_0_installation_of_cbuns/)
 2. [Set up Workcell](https://wenglor.github.io/wenglor-kassow-robots-vision/2_0_set_up_workcell/)
 3. [Robot Program](https://wenglor.github.io/wenglor-kassow-robots-vision/3_0_robot_program/)
