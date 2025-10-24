@@ -1,6 +1,6 @@
 # wenglor-kassow-robots-vision
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 
 > NOTE
 >
