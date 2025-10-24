@@ -17,7 +17,7 @@ Click on the + icon to install a CBun.
 
 <img src="images/02%20cbuns%20-%20add%20cbun.png" alt="add_cbun_screen" class="small"/>
 
-Install `system_utils`. It should be available on the robot controller. Otherwise, contact your Kassow partner.
+Install `system_utils`. It should be available on the robot controller. Otherwise, contact your Kassow Robots partner.
 
 <img src="images/03%20cbuns%20-%20install%20cbun%20system_utils.png" alt="install_system_utils" class="medium"/>
 
@@ -35,7 +35,7 @@ Activate the IK Custom Device with its default configuration.
 
 ## wenglor CBun
 
-Download the latest wenglor CBun version from this [GitHub repository](https://github.com/wenglor/wenglor-kassow-vision/tree/main/sources/) and put the files on a freshly formatted stick.
+Download the latest wenglor CBun version from this [GitHub repository](https://github.com/wenglor/wenglor-kassow-robots-vision/tree/main/sources/) and put the files on a freshly formatted stick.
 
 Plug in the USB stick in the robot controller. Click on Robot -> SHARED to install the wenglor CBun from the USB stick.
 
