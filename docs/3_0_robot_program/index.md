@@ -12,35 +12,45 @@ All methods of the wenglor node provide a test option that executes the method w
 
 ## Update the example program
 
-The robot example program uses the methods and is prepared that only small adjustments are necessary. 
-Update the calibration target in the following two commands:
+The robot program requires small adjustments depending on the use case.
 
-- Calculate Calibration
-- Calibrate Ground
+### Update the calibration target
 
-At the command `Calculate Calibration`, update the calibration target in the `run_calibration` subprogram.
+The following commands require the input of the calibration plate:
+
+- `Calculate Calibration`
+- `Calibrate Ground`
+- `Calibrate Target`
+- `Get Target Pose`
+
+In the robot example program, the calibration target must be set in the `run_calibration` subprogram.
 
 <img src="images/19%20program%20-%20adjust%20calibration%20target%20-%20calculate%20calibration.png" alt="select_calibration_target_at_calculate_calibration" class="big"/>
 
-At the command `Calculate Ground`, update the calibration target in the `run_calibration` subprogram at the second calibration step if the camera is not mounted on the robot.
+Set the calibration target at the second calibration step if the camera is not mounted on the robot (in `run_calibration`).
 
 <img src="images/20%20program%20-%20adjust%20calibration%20target%20-%20calibrate%20ground.png" alt="select_calibration_target_at_calibrate_ground" class="big"/>
 
-Update the uniVision job names. The example contains the following default uniVision job names:
+Set the calibration target in the `update_reference_frame` subroutine as well.
 
-- Calibration job: calibration.u3p
-- Detection of objects: find_objects.u3p
+### Update the uniVision job names
 
-Use the same job names in uniVision or update the job names in the robot program at the following places:
+By default, the following uniVision job names are used:
+
+- Calibration job: `calibration.u3p`
+- Detection of objects: `find_objects.u3p`
+- Detection of calibration target: `find_target.u3p`
+
+If using different uniVision job names, make sure to update them in the program:
 
 - At the beginning of the subprogram `run_calibration`.
-- At the end of the subprogram `prepare_detection`.
+- At the `single_detection` subroutine.
+- At the `multi_detection` subroutine.
+- At the `update_reference_frame` subroutine.
 
 <img src="images/21%20program%20-%20adjust%20calibation%20job.png" alt="update_job_at_run_calibration" class="big"/>
 
-Update the detection job at the end of the subprogram `prepare_detection`.
-
-<img src="images/22%20program%20-%20adjust%20detection%20job.png" alt="update_job_at_prepare_detection" class="big"/>
+<img src="images/22%20program%20-%20adjust%20detection%20job.png" alt="update_detection_job" class="big"/>
 
 ## Set Payload and TCP
 
@@ -49,23 +59,23 @@ Set payload and update TCP via:
 - Updating the system variables
 - Creating variables that are assigned to the system variables within the program
 
-In case of multiple tools, create a variable for each tool and assign it, when the tool is changed. At the beginning of the program, add those two commands.
+In case of multiple tools, create a variable for each tool and assign it when the tool is changed. At the beginning of the program, add those two commands.
 
 <img src="images/24%20program%20-%20init%20payload%20and%20tcp.png" alt="set_payload_and_tcp" class="medium"/>
 
 ## Run the program
 
-|Subprogram name| Details|
-|---------------|--------|
-| prepare_detection | Checks the camera state for errors and the calibration state. In case of no available calibration, it calls the run_calibration subprogram. After the calibration program, it checks the state again to see if the calibration was successful. If not, the program quits. Otherwise, the detection job is loaded. |
-| single_detection | Calls prepare_detection first. <br><br> Triggers a detection and moves the robot in a linear movement to the object. Even in case of multiple found objects, the subprogram only moves to one object. |
-| multi_detection | Calls prepare_detection first. <br><br> Triggers a detection and moves the robot to all objects. The movement will take place from one object to the next one, until no further object is available.<br><br> At first, it checks the number of found objects. Then it iterates through the object information via an index accessor. |
-| run_calibration | Loads the calibration job, clears the temporary calibration data (not the calibration itself) and moves the robot to the calibration poses. Then it calculates the calibration. If the camera is not mounted on the robot, it performs the second calibration step to calibrate the camera to object ground level. At the end, it calls validate_calibration. |
-| validate_calibration | Checks the calibration results by moving the robot TCP to the bottom left corner of the calibration target. As the camera is not triggered again, it is important that the calibration target was not moved between the calibration and the validation. <br><br> For safety reasons, enter a safety offset before the actual movement. This safety offset shifts the target pose above the calibration target. |
+After configuration, run the program. Several dialogs guide you through the process. The example program is just an example — adjust it to your needs.
+
+| Subprogram name | Details |
+|-----------------|---------|
+| `calibrate_if_needed` | Checks the camera state for errors and the calibration state. In case of no available calibration, it calls the `run_calibration` subprogram. After the calibration program, it checks the state again to see if the calibration was successful. |
+| `single_detection` | Calls `calibrate_if_needed` first. <br><br> Loads the detection job, moves the robot to the detection pose and triggers the object detection. After this, the robot moves in a linear movement to the object. Even if multiple objects are detected, the subprogram will only move to one object. |
+| `multi_detection` | Calls `calibrate_if_needed` first. <br><br> Loads the detection job, moves the robot to the detection pose and triggers the object detection. Then it iterates through the object information via an index accessor and moves the robot to all of the objects. |
+| `update_reference_frame` | Calls `calibrate_if_needed` first. Loads the `find_target` job and moves the robot to the pose where the camera can see the calibration target. Then it detects the calibration target pose and writes it into the persistent `g_reference_frame` variable. If the poses in the machine related to the reference frame are not taught yet, the program will stop. If you execute the subroutine again after setting `WU_MACHINE_POSES_TAUGHT`, it will also move to the updated poses in the machine. You need to add your poses at the bottom of this subroutine. |
+| `run_calibration` | Loads the calibration job, clears the temporary calibration data (not the calibration itself) and moves the robot to the calibration poses. Then it calculates the calibration. If the camera is not mounted on the robot, it performs the second calibration step to calibrate the camera to object ground level. |
+| `validate_calibration` | Checks the calibration results by moving the robot TCP to the bottom left corner of the calibration target. As the camera is not triggered again, it is important that the calibration target was not moved between the calibration and the validation. <br><br> For safety reasons, enter a safety offset (in mm) before the actual movement. This safety offset shifts the target pose above the calibration target. |
 
 Select the subprogram to execute.
 
 <img src="images/23%20program%20-%20call%20subprogram.png" alt="select_subprogram" class="big"/>
-
-
-

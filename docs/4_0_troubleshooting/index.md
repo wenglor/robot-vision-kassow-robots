@@ -1,7 +1,7 @@
 # Troubleshooting
 
 ## Insufficient Calibration Accuracy
-You can improve calibration accuracy by using more than five calibration poses. Add additional calibration poses to the persistent `g_calib_poses` at the Workcell section.
+You can improve calibration accuracy by using more than five calibration poses. Add additional calibration poses to the `WU_CALIB_POSES` program variable.
 
 ## Communication Errors
 - Verify, that the network setup of the added wenglor visiond device fits to your setup
