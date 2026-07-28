@@ -4,13 +4,13 @@ The example program implements a complete robot vision workflow: calibrating the
 
 ## The wenglor device node
 
-With the wenglor device you have access to all method calls of the robot vision API (see [Generic Robot Vision Interface](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_5_0_generic_robot_vision_interface/)).
+With the wenglor device you have access to all method calls of the robot vision API (see [Generic Robot Vision Interface](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_7_0_generic_robot_vision_interface/)).
 
-<img src="images/17%20program%20-%20command%20overview.png" alt="wenglor_node_command_overview" class="big"/>
+<img src="images/01_program_command_overview.png" alt="wenglor_node_command_overview" class="uniform-width-800"/>
 
 All methods of the wenglor node provide a test option that executes the method without the need of a robot program. To execute the method, in this case a job change, enter the desired job name and hit the play button.
 
-<img src="images/18%20program%20-%20run%20or%20test%20functions.png" alt="execute_command_with_play_button" class="big"/>
+<img src="images/02_program_run_or_test_functions.png" alt="execute_command_with_play_button" class="uniform-width-800"/>
 
 ## Program structure
 
@@ -54,7 +54,7 @@ The calibration process differs depending on whether the camera is mounted on th
 
 > NOTE
 >
-> For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Calibration Guidelines](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_1_calibration_guidelines/) in the wenglor robot vision manual. The description here does not repeat them.
+> For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual. The description here does not repeat them.
 
 ### Camera on robot
 
@@ -73,7 +73,7 @@ After calibration, `validate_calibration` performs an optional verification step
 
 > NOTE
 >
-> For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Calibration Guidelines](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_1_calibration_guidelines/) in the wenglor robot vision manual.
+> For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual.
 
 ## Detection
 
@@ -99,56 +99,7 @@ Internally, this subprogram calls the `target:pose` command of the generic robot
 
 ## Update the example program
 
-The robot program requires small adjustments depending on the use case.
-
-### Update the calibration target
-
-The following commands require the input of the calibration plate:
-
-- `Calculate Calibration`
-- `Calibrate Ground`
-- `Calibrate Target`
-- `Get Target Pose`
-
-In the robot example program, the calibration target must be set in the `run_calibration` subprogram.
-
-<img src="images/19%20program%20-%20adjust%20calibration%20target%20-%20calculate%20calibration.png" alt="select_calibration_target_at_calculate_calibration" class="big"/>
-
-Set the calibration target at the second calibration step if the camera is not mounted on the robot (in `run_calibration`).
-
-<img src="images/20%20program%20-%20adjust%20calibration%20target%20-%20calibrate%20ground.png" alt="select_calibration_target_at_calibrate_ground" class="big"/>
-
-Set the calibration target in the `update_reference_frame` subroutine as well.
-
-### Update the uniVision job names
-
-By default, the following uniVision job names are used:
-
-- Calibration job: `calibration.u3p`
-- Detection of objects: `find_objects.u3p`
-- Detection of calibration target: `find_target.u3p`
-
-If using different uniVision job names, make sure to update them in the program:
-
-- At the beginning of the subprogram `run_calibration`.
-- At the `single_detection` subroutine.
-- At the `multi_detection` subroutine.
-- At the `update_reference_frame` subroutine.
-
-<img src="images/21%20program%20-%20adjust%20calibation%20job.png" alt="update_job_at_run_calibration" class="big"/>
-
-<img src="images/22%20program%20-%20adjust%20detection%20job.png" alt="update_detection_job" class="big"/>
-
-## Set Payload and TCP
-
-Set payload and update TCP via:
-
-- Updating the system variables
-- Creating variables that are assigned to the system variables within the program
-
-In case of multiple tools, create a variable for each tool and assign it when the tool is changed. At the beginning of the program, add those two commands.
-
-<img src="images/24%20program%20-%20init%20payload%20and%20tcp.png" alt="set_payload_and_tcp" class="medium"/>
+The robot program requires small adjustments depending on the use case — see [User Configuration → Calibration target](../2_0_user_configuration/index.md#calibration-target) and [User Configuration → Update the uniVision job names](../2_0_user_configuration/index.md#update-the-univision-job-names) to set the calibration target and job names for your setup.
 
 ## Run the program
 
@@ -156,4 +107,4 @@ After configuration, run the program. Several dialogs guide you through the proc
 
 Select the subprogram to execute.
 
-<img src="images/23%20program%20-%20call%20subprogram.png" alt="select_subprogram" class="big"/>
+<img src="images/03_call_subprogram.png" alt="select_subprogram" class="uniform-width-800"/>

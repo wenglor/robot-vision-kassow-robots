@@ -13,17 +13,25 @@ The robot vision example for Kassow Robots consists of the following files:
 
 > NOTE
 >
-> The example was tested with the Robot Controller AC PROFINET, the robot arm KR0810 and the software version Firefly 4.1. The CBun and robot example program are compatible with the KR Series and Edge Edition and firmware FireFly.
+> The example was tested with the Robot Controller AC PROFINET, the robot arm KR0810 and the software version FireFly 4.1. The CBun and robot example program are compatible with the KR Series and Edge Edition and firmware FireFly.
 
 ---
 
-## Table of Contents
+## How the manual is organized
 
-1. [Installation & Setup](1_0_installation/index.md)
-2. [User Configuration](2_0_user_configuration/index.md)
-3. [Robot Program](3_0_robot_program/index.md)
-4. [Troubleshooting](4_0_troubleshooting/index.md)
-5. [Support & Feedback](5_0_support_and_feedback/index.md)
+```mermaid
+graph LR
+    A[1. Installation & Setup] --> B[2. User Configuration]
+    B --> C[3. Robot Program]
+    C -.-> D[4. Troubleshooting]
+    D -.-> E[5. Support & Feedback]
+```
+
+1. [Installation & Setup](1_0_installation/index.md) — install the required CBuns and configure the network connection to the Machine Vision Device.
+2. [User Configuration](2_0_user_configuration/index.md) — adjust the workcell and program variables to your setup.
+3. [Robot Program](3_0_robot_program/index.md) — how the example program's subprograms work together.
+4. [Troubleshooting](4_0_troubleshooting/index.md) — common issues and how to resolve them.
+5. [Support & Feedback](5_0_support_and_feedback/index.md) — where to report bugs or suggest features.
 
 > NOTE
 >

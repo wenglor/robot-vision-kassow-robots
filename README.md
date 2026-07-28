@@ -14,20 +14,18 @@ This repository demonstrates how to use the Generic Vision Interface with wenglo
 
 ## Table of Contents
 
-- [Example Kassow Robots program files for the generic vision interface](#example-kassow-robots-program-files-for-the-generic-vision-interface)
-  - [Table of Contents](#table-of-contents)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-  - [Running the Sample Program](#running-the-sample-program)
-  - [Troubleshooting](#troubleshooting)
-  - [Support & Feedback](#support--feedback)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Sample Program](#running-the-sample-program)
+- [Troubleshooting](#troubleshooting)
+- [Support & Feedback](#support--feedback)
 
 ---
 
 ## Prerequisites
 
-> Tested with Robot Controller AC PROFINET, robot arm KR0810, and software version Firefly 4.1
+> Tested with Robot Controller AC PROFINET, robot arm KR0810, and software version FireFly 4.1
 
 - Kassow Robots KR Series or Edge Edition with FireFly firmware
 - Basic knowledge of Kassow Robots programming
@@ -105,5 +103,5 @@ For more troubleshooting information, see the [Troubleshooting documentation](ht
 
 ## Support & Feedback
 
-- **Bugs:** Please open a new Issue in the [GitHub Issues section](../../issues) if needed
-- **Feature Requests & Ideas:** Discuss suggestions in the Discussions → Ideas category under [GitHub Discussions](../../discussions)
+- **Bugs:** Please open a new Issue in the [GitHub Issues section](../../issues) if needed.
+- **Feature Requests & Ideas:** Discuss suggestions in the Discussions → Ideas category under [GitHub Discussions](../../discussions).
