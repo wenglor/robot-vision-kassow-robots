@@ -1,4 +1,4 @@
-# User Configuration
+# 2. User Configuration
 
 The robot program requires configuration of workcell variables and program variables to match your specific setup. This section describes all parameters you need to adapt.
 

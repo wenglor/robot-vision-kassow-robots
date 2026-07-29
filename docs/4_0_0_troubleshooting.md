@@ -1,4 +1,4 @@
-# Troubleshooting
+# 4. Troubleshooting
 
 ## Insufficient Calibration Accuracy
 You can improve calibration accuracy by using more than five calibration poses. Add additional calibration poses to the `WU_CALIB_POSES` program variable.

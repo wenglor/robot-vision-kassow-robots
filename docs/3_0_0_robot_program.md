@@ -1,4 +1,4 @@
-# Robot Program
+# 3. Robot Program
 
 The example program implements a complete robot vision workflow: calibrating the camera to the robot, detecting objects, and moving to them. The program uses the wenglor vision device CBun to communicate with the Machine Vision Device.
 
@@ -22,7 +22,7 @@ The example program is organized into subprograms that handle different aspects 
 | `single_detection` | Calls `calibrate_if_needed` first. Loads the detection job, moves the robot to the detection pose and triggers the object detection. After this, the robot moves in a linear movement to the object. Even if multiple objects are detected, the subprogram will only move to one object. |
 | `multi_detection` | Calls `calibrate_if_needed` first. Loads the detection job, moves the robot to the detection pose and triggers the object detection. Then it iterates through the object information via an index accessor and moves the robot to all of the objects. |
 | `update_reference_frame` | Calls `calibrate_if_needed` first. Loads the `find_target` job and moves the robot to the pose where the camera can see the calibration target. Then it detects the calibration target pose and writes it into the persistent `g_reference_frame` variable. If the poses in the machine related to the reference frame are not taught yet, the program will stop. If you execute the subroutine again after setting `WU_MACHINE_POSES_TAUGHT`, it will also move to the updated poses in the machine. You need to add your poses at the bottom of this subroutine. |
-| `run_calibration` | Loads the calibration job, clears the temporary calibration data (not the calibration itself) and moves the robot to the calibration poses. Then it calculates the calibration. If the camera is not mounted on the robot, it performs the second calibration step to calibrate the camera to object ground level. |
+| `run_calibration` | Clears the temporary calibration data (not the calibration itself), loads the calibration job, and moves the robot to the calibration poses. Then it calculates the calibration. If the camera is not mounted on the robot, it performs the second calibration step to calibrate the camera to object ground level. On success, `calibrate_if_needed` automatically calls `validate_calibration` afterward. |
 | `validate_calibration` | Checks the calibration results by moving the robot TCP to the bottom left corner of the calibration target. As the camera is not triggered again, it is important that the calibration target was not moved between the calibration and the validation. For safety reasons, enter a safety offset (in mm) before the actual movement. This safety offset shifts the target pose above the calibration target. |
 
 The following diagram shows how the subprograms call each other, starting from the selected entry point:
@@ -39,7 +39,8 @@ graph TD
     URF --> CIN
 
     CIN -->|no calibration available| RunCal[run_calibration]
-    RunCal --> CIN
+    RunCal -->|calibration successful| ValidateAuto[validate_calibration]
+    ValidateAuto --> CIN
     CIN -->|calibration OK| Continue1[Continue subprogram]
 
     Single -.-> SingleFlow[Load detection job, move to detection pose,\ndetect one object, move to it]
@@ -52,9 +53,9 @@ graph TD
 
 The calibration process differs depending on whether the camera is mounted on the robot or not. The sections below describe only how the **Kassow example** performs each case.
 
-> NOTE
->
-> For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual. The description here does not repeat them.
+!!! note
+
+    For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual. The description here does not repeat them.
 
 ### Camera on robot
 
@@ -71,9 +72,9 @@ The calibration consists of two steps:
 
 After calibration, `validate_calibration` performs an optional verification step: it moves the robot TCP to the bottom-left corner of the calibration plate, offset upward by the safety offset, so the operator can visually confirm accuracy. The calibration plate must not be moved between calibration and verification.
 
-> NOTE
->
-> For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual.
+!!! note
+
+    For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual.
 
 ## Detection
 
@@ -99,7 +100,7 @@ Internally, this subprogram calls the `target:pose` command of the generic robot
 
 ## Update the example program
 
-The robot program requires small adjustments depending on the use case — see [User Configuration → Calibration target](../2_0_user_configuration/index.md#calibration-target) and [User Configuration → Update the uniVision job names](../2_0_user_configuration/index.md#update-the-univision-job-names) to set the calibration target and job names for your setup.
+The robot program requires small adjustments depending on the use case — see [User Configuration → Calibration target](2_0_0_user_configuration.md#calibration-target) and [User Configuration → String parameters (uniVision job names)](2_0_0_user_configuration.md#string-parameters-univision-job-names) to set the calibration target and job names for your setup.
 
 ## Run the program
 
