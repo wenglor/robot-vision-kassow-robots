@@ -3,7 +3,7 @@
 ## Insufficient Calibration Accuracy
 You can improve calibration accuracy by using more than five calibration poses. Add additional calibration poses to the `WU_CALIB_POSES` program variable.
 
-- Ensure minimum of 5 calibration poses are taught
+- Ensure a minimum of 5 calibration poses is taught
 - Verify calibration target is correctly set in the program
 - Check that the camera is properly positioned for the use case
 

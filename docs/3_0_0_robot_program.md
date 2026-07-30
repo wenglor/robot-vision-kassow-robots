@@ -4,7 +4,7 @@ The example program implements a complete robot vision workflow: calibrating the
 
 ## The wenglor device node
 
-With the wenglor device you have access to all method calls of the robot vision API (see [Generic Robot Vision Interface](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_7_0_generic_robot_vision_interface/)).
+With the wenglor device you have access to all method calls of the robot vision API (see [Generic Robot Vision Interface](https://wenglor.github.io/robot-vision-generic-string/4_7_0_generic_robot_vision_interface/)).
 
 <img src="images/01_program_command_overview.png" alt="wenglor_node_command_overview" class="uniform-width-800"/>
 
@@ -16,6 +16,8 @@ All methods of the wenglor node provide a test option that executes the method w
 
 The example program is organized into subprograms that handle different aspects of the robot vision workflow:
 
+/// html | div.col-widths
+    attrs: {style: "--w1: 30%; --w2: 70%;"}
 | Subprogram | Responsibility |
 | --- | --- |
 | `calibrate_if_needed` | Checks the camera state for errors and the calibration state. In case of no available calibration, it calls the `run_calibration` subprogram. After the calibration program, it checks the state again to see if the calibration was successful. |
@@ -23,7 +25,8 @@ The example program is organized into subprograms that handle different aspects 
 | `multi_detection` | Calls `calibrate_if_needed` first. Loads the detection job, moves the robot to the detection pose and triggers the object detection. Then it iterates through the object information via an index accessor and moves the robot to all of the objects. |
 | `update_reference_frame` | Calls `calibrate_if_needed` first. Loads the `find_target` job and moves the robot to the pose where the camera can see the calibration target. Then it detects the calibration target pose and writes it into the persistent `g_reference_frame` variable. If the poses in the machine related to the reference frame are not taught yet, the program will stop. If you execute the subroutine again after setting `WU_MACHINE_POSES_TAUGHT`, it will also move to the updated poses in the machine. You need to add your poses at the bottom of this subroutine. |
 | `run_calibration` | Clears the temporary calibration data (not the calibration itself), loads the calibration job, and moves the robot to the calibration poses. Then it calculates the calibration. If the camera is not mounted on the robot, it performs the second calibration step to calibrate the camera to object ground level. On success, `calibrate_if_needed` automatically calls `validate_calibration` afterward. |
-| `validate_calibration` | Checks the calibration results by moving the robot TCP to the bottom left corner of the calibration target. As the camera is not triggered again, it is important that the calibration target was not moved between the calibration and the validation. For safety reasons, enter a safety offset (in mm) before the actual movement. This safety offset shifts the target pose above the calibration target. |
+| `validate_calibration` | Checks the calibration results by moving the robot TCP to the bottom left corner of the calibration target. As the camera is not triggered again, it is important that the calibration target was not moved between the calibration and the validation. For safety reasons, enter a safety offset (in mm) before the movement. This safety offset shifts the target pose above the calibration target. |
+///
 
 The following diagram shows how the subprograms call each other, starting from the selected entry point:
 
@@ -55,7 +58,7 @@ The calibration process differs depending on whether the camera is mounted on th
 
 !!! note
 
-    For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual. The description here does not repeat them.
+    For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_0_robot_vision_server/) in the wenglor robot vision manual. The description here does not repeat them.
 
 ### Camera on robot
 
@@ -74,11 +77,11 @@ After calibration, `validate_calibration` performs an optional verification step
 
 !!! note
 
-    For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/) in the wenglor robot vision manual.
+    For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_0_robot_vision_server/) in the wenglor robot vision manual.
 
 ## Detection
 
-After successful calibration, the program picks objects. With the object position sent by the camera, the robot moves to the object pose.
+After successful calibration, the program picks objects. After the camera sends the object position, the robot moves to the object pose.
 
 ### `single_detection`
 
@@ -96,7 +99,7 @@ Used for mobile platforms and similar use cases (e.g. correcting positional devi
 
 On the first run, set the poses relative to `g_reference_frame`, then set `WU_MACHINE_POSES_TAUGHT` to `1` and restart.
 
-Internally, this subprogram calls the `target:pose` command of the generic robot vision API to obtain the calibration target's pose. See [4.6 Target Pose and Camera-to-Target Calibration](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_6_0_target_pose_and_camera_to_target/) in the wenglor robot vision manual for the underlying job setup and command details.
+Internally, this subprogram calls the `target:pose` command of the generic robot vision API to obtain the calibration target's pose. See [4.6 Target Pose and Camera-to-Target Calibration](https://wenglor.github.io/robot-vision-generic-string/4_6_0_target_pose_and_camera_to_target/) in the wenglor robot vision manual for the underlying job setup and command details.
 
 ## Update the example program
 

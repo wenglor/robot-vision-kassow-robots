@@ -93,7 +93,7 @@ For detailed program information, see the [Robot Program documentation](https://
 
 ### Calibration Issues
 
-- Ensure minimum of 5 calibration poses are taught
+- Ensure a minimum of 5 calibration poses is taught
 - Verify calibration target is correctly set in the program
 - Check that the camera is properly positioned for the use case
 

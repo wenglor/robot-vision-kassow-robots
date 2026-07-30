@@ -29,13 +29,13 @@ Ensure that:
 
 !!! note
 
-    On the Machine Vision Device website (Tab `Jobs` → `Robot Server`), make sure the robot server is active and the robot manufacturer is set to **Kassow Robots**. See [Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_3_0_settings_on_device_website/) in the wenglor robot vision manual.
+    On the Machine Vision Device website (Tab `Jobs` → `Robot Server`), make sure the robot server is active and the robot manufacturer is set to **Kassow Robots**. See [Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/4_3_0_settings_on_device_website/) in the wenglor robot vision manual.
 
-## Set Payload and TCP
-To set the payload and the TCP for the tool, go to variables and select payload or TCP.
+## Set payload and TCP
+To set the payload and TCP for the tool, navigate to Variables and select Payload or TCP.
 <img src="images/02_set_payload_and_tcp.png" alt="Set the Payload and TCP" class="uniform-width-600"/>
 
-## CBun Installation
+## CBun installation
 
 Install the relevant CBuns in order to use the robot example program:
 
@@ -86,12 +86,12 @@ Activate the wenglor vision device in order to initiate a connection from the ro
 
 <img src="images/11_workcell_custom_devices_wenglor_selected.png" alt="wenglor_vision_device_selected" class="uniform-width-800"/>
 
-In case of a valid network configuration to the Machine Vision Device, the device is activated successfully.
+If the network configuration to the Machine Vision Device is valid, the device is activated successfully.
 
 !!! note
 
-    - The connection is only maintained during the program execution. So the Workcell state might become outdated.
-    - Check the status for the robot connection on the device website of the Machine Vision Device (Tab `Jobs` → `Robot Server`, see [chapter 4.2 Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/4_0_robot_vision_server/4_3_0_settings_on_device_website/)).
+    - The connection is only maintained during program execution, so the Workcell state might become outdated.
+    - Check the status for the robot connection on the device website of the Machine Vision Device (Tab `Jobs` → `Robot Server`, see [chapter 4.2 Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/4_3_0_settings_on_device_website/)).
 
 <img src="images/12_workcell_custom_devices_wenglor_activated.png" alt="wenglor_vision_device_activated" class="uniform-width-800"/>
 

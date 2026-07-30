@@ -6,10 +6,13 @@ The robot program requires configuration of workcell variables and program varia
 
 For the program execution, two persistent and global variables are required in the workcell. Add them manually to the workspace.
 
+/// html | div.col-widths
+    attrs: {style: "--w1: 25%; --w2: 5%; --w3: 70%;"}
 | Variable name | Type | Function |
 |--------------------|------|----------|
 | `g_detection_pose` | Pose | The pose that triggers the detection. Also used as a retreat pose for calibration step 2 if the camera is not mounted on the robot. The robot will move there, so you can remove the calibration plate to place it on the object ground. |
 | `g_reference_frame` | Pose | The pose that is used as a reference frame for other poses. It is updated in the program to also update the related poses. |
+///
 
 Add the variables in the Workcell as persistent variables.
 
@@ -23,9 +26,12 @@ Open the program from the USB stick to set up the program variables.
 
 ### Boolean parameters
 
+/// html | div.col-widths
+    attrs: {style: "--w1: 30%; --w2: 70%;"}
 | Parameter | Description |
 | --- | --- |
 | `WU_MACHINE_POSES_TAUGHT` | Used within the `update_reference_frame` use case to stop the program so the related poses for the reference frame can be taught after the initial reference frame was set. After teaching the poses, set this value to `1`. |
+///
 
 ### Numerical parameters
 
@@ -37,9 +43,12 @@ Open the program from the USB stick to set up the program variables.
 
 ### Pose parameters
 
+/// html | div.col-widths
+    attrs: {style: "--w1: 20%; --w2: 80%;"}
 | Parameter | Description |
 | --- | --- |
 | `WU_CALIB_POSES` | An array of the calibration poses. During the calibration procedure, the program iterates through the poses. You can add, remove or update poses here. A minimum number of five poses is required. |
+///
 
 <img src="images/04_calib_poses.png" alt="g_calib_poses" class="uniform-width-800"/>
 
