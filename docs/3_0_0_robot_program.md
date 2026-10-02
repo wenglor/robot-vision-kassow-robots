@@ -4,7 +4,7 @@ The example program implements a complete robot vision workflow: calibrating the
 
 ## The wenglor device node
 
-With the wenglor device you have access to all method calls of the robot vision API (see [Generic Robot Vision Interface](https://wenglor.github.io/robot-vision-generic-string/4_7_0_generic_robot_vision_interface/)).
+With the wenglor device you have access to all method calls of the robot vision API (see [Generic Robot Vision API](https://wenglor.github.io/robot-vision-generic-string/5_6_0_generic_robot_vision_api/)).
 
 <img src="images/01_program_command_overview.png" alt="wenglor_node_command_overview" class="uniform-width-800"/>
 
@@ -58,7 +58,7 @@ The calibration process differs depending on whether the camera is mounted on th
 
 !!! note
 
-    For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_0_robot_vision_server/) in the wenglor robot vision manual. The description here does not repeat them.
+    For the general calibration concepts — which calibration plate to use, how to choose and vary the poses, and how to read the reprojection error — see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/5_1_0_basics_with_robot_server/) in the wenglor robot vision manual. The description here does not repeat them.
 
 ### Camera on robot
 
@@ -77,7 +77,7 @@ After calibration, `validate_calibration` performs an optional verification step
 
 !!! note
 
-    For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/4_0_0_robot_vision_server/) in the wenglor robot vision manual.
+    For what a good calibration looks like (Z-axis orientation, expected reprojection error values), see the [Wenglor Robot Server overview](https://wenglor.github.io/robot-vision-generic-string/5_1_0_basics_with_robot_server/) in the wenglor robot vision manual.
 
 ## Detection
 
@@ -99,7 +99,7 @@ Used for mobile platforms and similar use cases (e.g. correcting positional devi
 
 On the first run, set the poses relative to `g_reference_frame`, then set `WU_MACHINE_POSES_TAUGHT` to `1` and restart.
 
-Internally, this subprogram calls the `target:pose` command of the generic robot vision API to obtain the calibration target's pose. See [4.6 Target Pose and Camera-to-Target Calibration](https://wenglor.github.io/robot-vision-generic-string/4_6_0_target_pose_and_camera_to_target/) in the wenglor robot vision manual for the underlying job setup and command details.
+Internally, this subprogram calls the `target:pose` command of the generic robot vision API to obtain the calibration target's pose. See [5.5 Job in uniVision to Get Target Pose or Calibrate Camera to Target](https://wenglor.github.io/robot-vision-generic-string/5_5_0_target_pose_and_camera_to_target/) in the wenglor robot vision manual for the underlying job setup and command details.
 
 ## Update the example program
 

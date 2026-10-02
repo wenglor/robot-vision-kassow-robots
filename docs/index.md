@@ -8,8 +8,8 @@ This repository contains an example program to set up and start the generic visi
 
 The robot vision example for Kassow Robots consists of the following files:
 
-- `wenglor_vision_1.1.0.kr2` — the example program file that demonstrates the vision interface usage
-- `wenglor_vision_devices_1.1.0.cbun` — the CBun that provides the wenglor vision device node with API methods
+- `wenglor_vision_1.2.0.kr2` — the example program file that demonstrates the vision interface usage
+- `wenglor_vision_devices_1.2.0.cbun` — the CBun that provides the wenglor vision device node with API methods
 
 !!! note
 
@@ -35,4 +35,4 @@ graph LR
 
 !!! note
 
-    The generic robot vision API (commands, return values, error codes), the calibration guidelines, and the uniVision job setup are documented once in the [wenglor robot vision manual](https://wenglor.github.io/robot-vision-generic-string/4_0_0_robot_vision_server/) and are **not** repeated here. This manual only describes how the Kassow Robots example uses them.
+    The generic robot vision API (commands, return values, error codes), the calibration guidelines, and the uniVision job setup are documented once in the [wenglor robot vision manual](https://wenglor.github.io/robot-vision-generic-string/5_1_0_basics_with_robot_server/) and are **not** repeated here. This manual only describes how the Kassow Robots example uses them.
