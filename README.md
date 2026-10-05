@@ -1,8 +1,8 @@
 # Example Kassow Robots program files for the generic vision interface
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 
-This repository demonstrates how to use the Generic Vision Interface with wenglor vision devices on a Kassow robot. The included `.kr2` program file and `.cbun` form a working sample program that you can adopt and customize for your application.
+This repository demonstrates how to use the Generic Vision Interface with wenglor vision devices on a Kassow robot. The included `.kr2` program file and `.cbun` form a working sample program that you can adapt and customize for your application.
 
 > NOTE
 >
@@ -29,8 +29,8 @@ This repository demonstrates how to use the Generic Vision Interface with wenglo
 
 - Kassow Robots KR Series or Edge Edition with FireFly firmware
 - Basic knowledge of Kassow Robots programming
-- [B60](https://www.wenglor.com/en/Machine-Vision/Smart-Cameras-and-Vision-Sensors/Smart-Camera-B60/c/cxmCID221375) (firmware >= 1.4) or [Machine Vision Controller (MVC)](https://www.wenglor.com/en/Machine-Vision/Machine-Vision-Controllers/c/cxmCID221381) (firmware >= 1.1)
-- A [uniVision](https://www.wenglor.com/en/Machine-Vision/Machine-Vision-Software/Image-Processing-Software-uniVision-3/c/cxmCID222459) job for calibration and object detection
+- [B60](https://www.wenglor.com/B60) (firmware >= 1.4) or [Machine Vision Controller (MVC)](https://www.wenglor.com/MachineVisionController) (firmware >= 1.1)
+- A [uniVision](https://www.wenglor.com/uniVision3) job for calibration and object detection
 - Network connection between robot controller and vision device
 
 ---
@@ -43,7 +43,7 @@ This repository demonstrates how to use the Generic Vision Interface with wenglo
    - `wenglor vision devices`
 3. Copy the example program to the robot controller.
 
-For detailed installation steps, see the [Installation & Setup documentation](https://wenglor.github.io/robot-vision-kassow-robots/1_0_installation/).
+For detailed installation steps, see the [Installation & Setup documentation](https://wenglor.github.io/robot-vision-kassow-robots/1_0_0_installation/).
 
 ---
 
@@ -52,18 +52,18 @@ For detailed installation steps, see the [Installation & Setup documentation](ht
 The robot program requires configuration of:
 
 - **Network settings**: IP address and port of the vision device
-- **Calibration poses**: Minimum of 5 poses for hand-eye calibration
+- **Calibration poses**: at least five poses for hand-eye calibration
 - **uniVision job names**: Calibration, detection, and target detection jobs
 - **Use case**: Camera mounted on robot or not
 - **Workcell variables**: Persistent variables for detection pose and reference frame
 
-For detailed configuration steps, see the [User Configuration documentation](https://wenglor.github.io/robot-vision-kassow-robots/2_0_user_configuration/).
+For detailed configuration steps, see the [User Configuration documentation](https://wenglor.github.io/robot-vision-kassow-robots/2_0_0_user_configuration/).
 
 ---
 
 ## Running the Sample Program
 
-1. Load the program [wenglor_vision_1.1.0.kr2](sources/wenglor_vision_1.1.0.kr2) on your robot.
+1. Load the program [wenglor_vision_1.2.0.kr2](sources/wenglor_vision_1.2.0.kr2) on your robot.
 2. Configure the required variables and poses.
 3. Select the subprogram to execute:
    - `calibrate_if_needed`: Checks calibration state and runs calibration if needed
@@ -72,7 +72,7 @@ For detailed configuration steps, see the [User Configuration documentation](htt
    - `update_reference_frame`: Updates reference frame for mobile platforms
 4. Execute the program and monitor the messages on the robot controller display.
 
-For detailed program information, see the [Robot Program documentation](https://wenglor.github.io/robot-vision-kassow-robots/3_0_robot_program/).
+For detailed program information, see the [Robot Program documentation](https://wenglor.github.io/robot-vision-kassow-robots/3_0_0_robot_program/).
 
 ---
 
@@ -93,11 +93,11 @@ For detailed program information, see the [Robot Program documentation](https://
 
 ### Calibration Issues
 
-- Ensure a minimum of 5 calibration poses is taught
+- Ensure that at least five calibration poses are taught
 - Verify calibration target is correctly set in the program
 - Check that the camera is properly positioned for the use case
 
-For more troubleshooting information, see the [Troubleshooting documentation](https://wenglor.github.io/robot-vision-kassow-robots/4_0_troubleshooting/).
+For more troubleshooting information, see the [Troubleshooting documentation](https://wenglor.github.io/robot-vision-kassow-robots/4_0_0_troubleshooting/).
 
 ---
 

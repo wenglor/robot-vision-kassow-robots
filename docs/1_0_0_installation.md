@@ -13,8 +13,8 @@ The Kassow robot vision example requires installing specific CBuns (Custom Bundl
 
 Download the robot example from this [GitHub repository](https://github.com/wenglor/robot-vision-kassow-robots/tree/main/sources/). It consists of:
 
-- `wenglor_vision_1.1.0.kr2` — the example program file that demonstrates the vision interface usage
-- `wenglor_vision_devices_1.1.0.cbun` — the CBun that provides the wenglor vision device node with API methods
+- `wenglor_vision_1.2.0.kr2` — the example program file that demonstrates the vision interface usage
+- `wenglor_vision_devices_1.2.0.cbun` — the CBun that provides the wenglor vision device node with API methods
 
 ## Network configuration
 
@@ -23,13 +23,14 @@ Configure the network settings of the Kassow robot controller so it can reach th
 <img src="images/01_set_robots_ip_address.png" alt="Set the robots IP address" class="uniform-width-600"/>
 
 Ensure that:
+
 - The robot controller and vision device are on the same network
 - The IP address of the vision device is accessible from the robot controller
 - No firewall rules block the communication (default port: `32006`)
 
 !!! note
 
-    On the Machine Vision Device website (Tab `Jobs` → `Robot Server`), make sure the robot server is active and the robot manufacturer is set to **Kassow Robots**. See [Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/4_3_0_settings_on_device_website/) in the wenglor robot vision manual.
+    On the Machine Vision Device website (Tab `Jobs` → `Robot Server`), make sure the robot server is active and the robot manufacturer is set to **Kassow Robots**. See [Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/5_2_0_settings_on_device_website/) in the wenglor robot vision manual.
 
 ## Set payload and TCP
 To set the payload and TCP for the tool, navigate to Variables and select Payload or TCP.
@@ -91,12 +92,12 @@ If the network configuration to the Machine Vision Device is valid, the device i
 !!! note
 
     - The connection is only maintained during program execution, so the Workcell state might become outdated.
-    - Check the status for the robot connection on the device website of the Machine Vision Device (Tab `Jobs` → `Robot Server`, see [chapter 4.2 Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/4_3_0_settings_on_device_website/)).
+    - Check the status for the robot connection on the device website of the Machine Vision Device (Tab `Jobs` → `Robot Server`, see [chapter 4.2 Settings on Device Website](https://wenglor.github.io/robot-vision-generic-string/5_2_0_settings_on_device_website/)).
 
 <img src="images/12_workcell_custom_devices_wenglor_activated.png" alt="wenglor_vision_device_activated" class="uniform-width-800"/>
 
 ## Loading the program
 
-After installing the CBuns and configuring the network, load the example program `wenglor_vision_1.1.0.kr2` from the USB stick to the robot controller. The program is then ready to be configured and executed.
+After installing the CBuns and configuring the network, load the example program `wenglor_vision_1.2.0.kr2` from the USB stick to the robot controller. The program is then ready to be configured and executed.
 
 For configuration details, see [User Configuration](2_0_0_user_configuration.md).
