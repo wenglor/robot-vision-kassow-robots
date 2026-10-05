@@ -1,6 +1,6 @@
 # Example Kassow Robots program files for the generic vision interface
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 This repository demonstrates how to use the Generic Vision Interface with wenglor vision devices on a Kassow robot. The included `.kr2` program file and `.cbun` form a working sample program that you can adapt and customize for your application.
 
